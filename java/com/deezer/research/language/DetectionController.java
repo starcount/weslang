@@ -39,7 +39,7 @@ public class DetectionController {
 
   @RequestMapping(value = "/detect", method = { RequestMethod.GET, RequestMethod.POST })
   public DetectionResult detect(
-      @RequestParam(value = "q", required = true) String text) {
+      @RequestParam(value = "q", required = true) String text) throws LangDetectException {
     DetectionResult result = service.detect(text);
     this.counterService.increment(
         "com.deezer.research.language.DetectionService." + result.getLanguage());

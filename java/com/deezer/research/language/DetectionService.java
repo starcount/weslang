@@ -16,6 +16,7 @@
 
 package com.deezer.research.language;
 
+import com.deezer.research.language.LangDetectException;
 /**
  * Interface to detect the language of a given text.
  */
@@ -28,5 +29,5 @@ public interface DetectionService {
    * @param text The text to analyze.
    * @return DetectionResult with the identified lanaguage.
    */
-  DetectionResult detect(String text);
+  DetectionResult detect(String text) throws LangDetectException;
 }

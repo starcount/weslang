@@ -29,7 +29,7 @@ public class DetectionServiceImplTest extends BaseTest {
   }
 
   @Test
-  public void testServicesReturnDifferentLanguages() {
+  public void testServicesReturnDifferentLanguages() throws LangDetectException {
     assertEquals(new DetectionResult("UNKNOWN", 0.0),
                  this.service.detect("hola mundo"));
   }

@@ -34,7 +34,7 @@ public abstract class BaseTest {
    * @see TestData
    */
   @Test
-  public void testDetection() {
+  public void testDetection() throws LangDetectException {
     String languageCode;
     for (int i = 0; i < TestData.data.length; ++i) {
       languageCode = TestData.data[i][0];
@@ -50,7 +50,7 @@ public abstract class BaseTest {
    * Checks that the service can correctly handle the emtpy string.
    */
   @Test
-  public void testEmptyString() {
+  public void testEmptyString() throws LangDetectException {
     assertEquals(new DetectionResult("UNKNOWN", 0.0), this.service.detect(""));
   }
 }

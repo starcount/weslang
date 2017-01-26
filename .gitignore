@@ -4,3 +4,4 @@ buck-out/
 .git
 .svn
 .idea
+*.iml

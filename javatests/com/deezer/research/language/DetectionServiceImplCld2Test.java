@@ -29,7 +29,7 @@ public class DetectionServiceImplCld2Test extends BaseTest{
   }
 
   @Test
-  public void testHebrewCode() {
+  public void testHebrewCode() throws LangDetectException{
     // This is already tested in testDection, but an explicit check is desired.
     assertEquals(
         "he",
@@ -39,7 +39,7 @@ public class DetectionServiceImplCld2Test extends BaseTest{
   }
 
   @Test
-  public void testSimplifiedChinese() {
+  public void testSimplifiedChinese() throws LangDetectException {
     // This is already tested in testDection, but an explicit check is desired.
     assertEquals(
         "zh-cn",
@@ -51,7 +51,7 @@ public class DetectionServiceImplCld2Test extends BaseTest{
   }
 
   @Test
-  public void testTraditionalChinese() {
+  public void testTraditionalChinese() throws LangDetectException{
     // This is already tested in testDection, but an explicit check is desired.
     assertEquals(
         "zh-tw",

@@ -48,7 +48,7 @@ public class DetectionServiceImpl implements DetectionService {
   }
 
   @Override
-  public DetectionResult detect(String text) {
+  public DetectionResult detect(String text) throws LangDetectException {
     DetectionResult result1 = this.cld2Service.detect(text);
 
     if (result1.getConfidence() < CONFIDENCE_THRESHOLD || result1.getLanguage().equals("UNKNOWN")) {

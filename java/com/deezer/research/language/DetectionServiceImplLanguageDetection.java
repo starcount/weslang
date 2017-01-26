@@ -24,6 +24,7 @@ import com.cybozu.labs.langdetect.DetectorFactory;
 import com.cybozu.labs.langdetect.LangDetectException;
 import com.cybozu.labs.langdetect.Language;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -34,21 +35,20 @@ import java.util.List;
  *
  * @see https://code.google.com/p/language-detection/
  */
-@Service
-@Profile("java-only")
-public class DetectionServiceImplLanguageDetection implements DetectionService {
+public class DetectionServiceImplLanguageDetection {
+  DetectionResult UNKNOWN = new DetectionResult("UNKNOWN", 0.0);
   public DetectionServiceImplLanguageDetection() throws IOException,
                                                         UnsupportedEncodingException,
                                                         IllegalArgumentException {
     try {
-      DetectorFactory.loadDefaultProfiles();
+      DetectorFactory.loadProfile(new File("/home/sc9/git/weslang/third_party/java/language-detection-v2/profiles"));
     } catch (LangDetectException e) {
       throw new IllegalArgumentException(e.getMessage());
     }
   }
 
   @Override
-  public DetectionResult detect(String text) {
+  public DetectionResult detect(String text) throws LangDetectException {
     Detector detector;
     try {
       detector = DetectorFactory.create();
